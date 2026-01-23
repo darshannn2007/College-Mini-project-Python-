@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Update Student Marks</h2>
+    
+    {% if message %}
+        <h3 class="success">{{ message }}</h3>
+    {% endif %}
+
+    <form action="/update" method="POST" onsubmit="return validateForm()">
+        <label>Enter Student ID to Update:</label>
+        <input type="number" name="student_id" required>
+
+        <h3>Enter New Marks</h3>
+        <label>Mathematics:</label>
+        <input type="number" name="maths" step="0.1" required>
+
+        <label>PPS:</label>
+        <input type="number" name="pps" step="0.1" required>
+
+        <label>Economics:</label>
+        <input type="number" name="eco" step="0.1" required>
+
+        <label>Physics:</label>
+        <input type="number" name="phy" step="0.1" required>
+
+        <button type="submit">Update Marks</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Class Average</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <div style="text-align: left; margin-left: 20%;">
+            <p><strong>Class Average:</strong> {{ class_avg }}</p>
+            <p><strong>Top Performer:</strong> {{ top_student.name }} ({{ top_student.average }})</p>
+        </div>
+
+        <h3>Subject Breakdown</h3>
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Average</th>
+                <th>Highest</th>
+                <th>Lowest</th>
+            </tr>
+            {% for subject, data in subject_stats.items() %}
+            <tr>
+                <td>{{ subject }}</td>
+                <td>{{ data.avg | round(2) }}</td>
+                <td>{{ data.max }}</td>
+                <td>{{ data.min }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
