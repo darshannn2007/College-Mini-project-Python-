@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa-solid fa-user-plus"></i> Add New Student</h2>
+
+<form action="/add" method="POST" onsubmit="return validateForm()">
+    <div class="form-grid">
+        <div class="form-group full-width">
+            <label><i class="fa-solid fa-user"></i> Full Name:</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-calendar-days"></i> Age:</label>
+            <input type="number" name="age" placeholder="18" required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-school"></i> Class:</label>
+            <input type="text" name="class" placeholder="e.g. 1st Year" required>
+        </div>
+
+        <div class="form-group full-width">
+            <label><i class="fa-solid fa-venus-mars"></i> Gender:</label>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group full-width">
+            <h3 style="margin-top: 10px;"><i class="fa-solid fa-book-open"></i> Subject Marks</h3>
+        </div>
+
+        <div class="form-group">
+            <label>Mathematics:</label>
+            <input type="number" name="maths" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>PPS:</label>
+            <input type="number" name="pps" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>Economics:</label>
+            <input type="number" name="eco" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>Physics:</label>
+            <input type="number" name="phy" step="0.1" placeholder="0-100" required>
+        </div>
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Save Student</button>
+</form>
+{% endblock %}

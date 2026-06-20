@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1><i class="fa-solid fa-graduation-cap" style="color: #667eea; margin-right: 10px;"></i>Student Management
+            System</h1>
+
+        <div class="nav-bar">
+            <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="/add"><i class="fa-solid fa-user-plus"></i> Add Student</a>
+            <a href="/view"><i class="fa-solid fa-users"></i> View Students</a>
+            <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+            <a href="/update"><i class="fa-solid fa-pen-to-square"></i> Update Marks</a>
+            <a href="/delete"><i class="fa-solid fa-trash"></i> Delete Student</a>
+            <a href="/average"><i class="fa-solid fa-chart-pie"></i> Class Average</a>
+        </div>
+
+        <hr>
+
+        <!-- Flash Messages Block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {% if category == 'success' %}
+                <i class="fa-solid fa-circle-check"></i>
+                {% else %}
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {% endif %}
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+        <footer>
+            <p>&copy; 2026 Student Management System | Project by Yaswant Reddy, Nanda Kishor, Pushkar, Darshan</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

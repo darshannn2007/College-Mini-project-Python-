@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa-solid fa-chart-pie"></i> Class Statistics</h2>
+
+{% if not error %}
+<div class="dashboard-cards" style="margin-top: 20px;">
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <i class="fa-solid fa-users-rays" style="color: rgba(255,255,255,0.8);"></i>
+        <h3 style="color: white; border-bottom: none;">Class Average</h3>
+        <p style="font-size: 2.5em; font-weight: 700; margin: 10px 0; color: white;">{{ class_avg }}</p>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: white;">
+        <i class="fa-solid fa-trophy" style="color: rgba(255,255,255,0.8);"></i>
+        <h3 style="color: white; border-bottom: none;">Top Performer</h3>
+        <p style="font-size: 1.5em; font-weight: 700; margin: 10px 0 0 0; color: white;">{{ top_student.name }}</p>
+        <p style="font-size: 1.1em; margin: 5px 0 0 0; color: rgba(255,255,255,0.9);">Avg: {{ top_student.average |
+            round(2) }}</p>
+    </div>
+</div>
+
+<h3 style="margin-top: 40px;"><i class="fa-solid fa-book-open-reader"></i> Subject Breakdown</h3>
+<div class="table-responsive">
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Class Average</th>
+            <th>Highest Mark</th>
+            <th>Lowest Mark</th>
+        </tr>
+        {% for subject, data in subject_stats.items() %}
+        <tr>
+            <td style="font-weight: 600; color: #4a5568;">{{ subject }}</td>
+            <td><span style="color: #667eea; font-weight: 700;">{{ data.avg | round(2) }}</span></td>
+            <td><span style="color: #38a169; font-weight: 600;"><i class="fa-solid fa-arrow-trend-up"></i> {{ data.max
+                    }}</span></td>
+            <td><span style="color: #e53e3e; font-weight: 600;"><i class="fa-solid fa-arrow-trend-down"></i> {{ data.min
+                    }}</span></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

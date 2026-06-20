@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa-solid fa-user-minus"></i> Delete Student Record</h2>
+
+<form action="/delete" method="POST" style="border-top: 4px solid #e53e3e;">
+    <label><i class="fa-solid fa-hashtag"></i> Enter Student ID to Delete:</label>
+    <input type="number" name="student_id" placeholder="e.g. 1" required>
+
+    <div
+        style="background: #fff5f5; border-left: 4px solid #e53e3e; padding: 15px; margin-top: 20px; border-radius: 6px;">
+        <p style="color: #c53030; font-weight: 600; margin: 0;">
+            <i class="fa-solid fa-triangle-exclamation"></i> Warning: This action cannot be undone!
+        </p>
+    </div>
+
+    <button type="submit"
+        style="background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);">
+        <i class="fa-solid fa-trash-can"></i> Delete Student
+    </button>
+</form>
+{% endblock %}

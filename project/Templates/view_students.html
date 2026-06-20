@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa-solid fa-users"></i> All Students Records</h2>
+
+{% if students|length == 0 %}
+<div class="card" style="margin-top: 40px; box-shadow: none; border: 2px dashed #cbd5e0;">
+    <i class="fa-regular fa-folder-open" style="color: #a0aec0; font-size: 3em;"></i>
+    <h3 style="color: #718096; margin-top: 20px;">No students added yet</h3>
+    <p>Go to the <a href="/add" style="color: #667eea;">Add Student</a> page to add your first record.</p>
+</div>
+{% else %}
+<div class="table-responsive">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th><i class="fa-solid fa-calculator"></i> Maths</th>
+            <th><i class="fa-solid fa-code"></i> PPS</th>
+            <th><i class="fa-solid fa-chart-bar"></i> Eco</th>
+            <th><i class="fa-solid fa-atom"></i> Phy</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td><strong>#{{ s.student_id }}</strong></td>
+            <td style="font-weight: 500;">{{ s.name }}</td>
+            <td><span style="background: #edf2f7; padding: 4px 8px; border-radius: 4px; font-size: 0.9em;">{{ s.class
+                    }}</span></td>
+            <td>{{ s.grades.Mathematics }}</td>
+            <td>{{ s.grades.PPS }}</td>
+            <td>{{ s.grades.Economics }}</td>
+            <td>{{ s.grades.Physics }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

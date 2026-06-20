@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa-solid fa-pen-to-square"></i> Update Student Marks</h2>
+
+<form action="/update" method="POST" onsubmit="return validateForm()">
+    <div class="form-group full-width" style="margin-bottom: 20px;">
+        <label><i class="fa-solid fa-hashtag"></i> Enter Student ID to Update:</label>
+        <input type="number" name="student_id" placeholder="e.g. 1" required>
+    </div>
+
+    <h3><i class="fa-solid fa-marker"></i> Enter New Marks</h3>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Mathematics:</label>
+            <input type="number" name="maths" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>PPS:</label>
+            <input type="number" name="pps" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>Economics:</label>
+            <input type="number" name="eco" step="0.1" placeholder="0-100" required>
+        </div>
+
+        <div class="form-group">
+            <label>Physics:</label>
+            <input type="number" name="phy" step="0.1" placeholder="0-100" required>
+        </div>
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-check-double"></i> Update Marks</button>
+</form>
+{% endblock %}

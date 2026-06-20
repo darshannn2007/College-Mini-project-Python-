@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<p>Select an option from the menu to manage student records.</p>
+
+<div class="dashboard-cards">
+    <div class="card" onclick="location.href='/add'" style="cursor:pointer;">
+        <i class="fa-solid fa-user-plus"></i>
+        <h3>Add Student</h3>
+        <p>Enroll a new student to the system.</p>
+    </div>
+    <div class="card" onclick="location.href='/view'" style="cursor:pointer;">
+        <i class="fa-solid fa-users"></i>
+        <h3>View Records</h3>
+        <p>Browse all enrolled students.</p>
+    </div>
+    <div class="card" onclick="location.href='/average'" style="cursor:pointer;">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Statistics</h3>
+        <p>View class averages and top performers.</p>
+    </div>
+</div>
+{% endblock %}
