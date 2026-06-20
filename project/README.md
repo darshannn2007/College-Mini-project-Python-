@@ -1,47 +1,46 @@
-# Student Management System (SMS)
+# Student Management System 🎓
 
-A simple, lightweight web application built to manage student records and track academic performance. This project replaces traditional command-line interfaces with a clean web GUI using **Flask** for the backend logic and dynamic **HTML/CSS/JS** for the frontend. 
+A full-stack web application built using **Flask (Python)**, **HTML5/CSS3 (with glassmorphic UI elements)**, and **JavaScript**. This project serves as a comprehensive tool to manage student profiles, handle academic mark entries for key subjects, track real-time analytics like class averages, and identify top performers. 
 
-It handles complete CRUD operations and automatically calculates class statistics, subject averages, and identifies the top performer.
-
----
-
-## 🚀 Key Features
-
-* **Interactive Dashboard:** A centralized landing page with an easy-to-use navigation bar.
-* **Add Student Records:** Simple form interface to save student profiles (Name, Age, Class, Gender) along with internal marks for **Mathematics, PPS, Economics, and Physics**.
-* **View Ledger:** Pulls data from the dynamic data store and renders it cleanly in a structured HTML table.
-* **Search Engine:** Built-in string matching that lets you search students by typing full or partial names.
-* **Update Marks:** Allows quick modification of subject scores via unique Student IDs.
-* **Delete Records:** Safely removes data entries from the system with a red alert/warning prompt to prevent accidental deletions.
-* **Performance Analytics:** No manual math required. Automatically outputs:
-    * Overall Class Average
-    * Top Performer of the batch
-    * Subject-wise breakdowns (Highest, Lowest, and Average marks for each subject)
+Built as part of the B.Tech academic curriculum submission / mini-project coursework.
 
 ---
 
-## 🛡️ Input Validation (Client-Side)
+## 🚀 Features
 
-To avoid junk data or fat-finger entry errors, we implemented a custom validation script in `script.js`:
-* **Range Enforcement:** Automatically checks all numeric inputs on form submission.
-* **Bound Checking:** Restricts marks strictly between **0 and 100**. If a user enters a negative value or something above 100, a browser alert pops up immediately and blocks the backend submission.
+* **Dashboard Overview:** Clean, interactive UI panel built with modern CSS grids and hover animations.
+* **CRUD Operations:** Fully functional backend logic to **Add**, **View**, **Update**, and **Delete** student records seamlessly.
+* **Persistent Storage:** Data is stored locally using a structured `data.json` database, preventing loss on server restarts.
+* **Search Engine:** Quick lookup functionality supporting partial or full name string matching.
+* **Real-time Frontend Validation:** Built-in client-side validation logic using JavaScript to restrict subject marks strictly between `0` and `100` before submission.
+* **Class Analytics & Insights:** Dynamic calculation of overall class average scores and automated tracking of individual subject performance metrics (Highest, Lowest, and Average marks).
 
 ---
 
-## 📁 Project Directory Structure
+## 🛠️ Tech Stack & Concepts Used
+
+* **Backend Framework:** Python Flask
+* **Frontend Design:** HTML5, CSS3 (Glassmorphism, CSS Custom Grids, FontAwesome Icons)
+* **Client Validation:** JavaScript (DOM Manipulation & Form Validation events)
+* **Database File System:** JSON Serializer Serialization/Deserialization
+* **Concepts applied:** Dynamic Routing, Session Flash Messages, Templating Engine (Jinja2).
+
+---
+
+## 🗂️ Repository Structure
 
 ```text
-├── app.py                 # Core Flask backend (routes, logic, data array)
+├── app.py                 # Core Flask Application & Route Handlers
+├── data.json              # Local Database file storing JSON objects
 ├── static/
-│   ├── style.css          # UI styling, responsive design rules, table presets
-│   └── script.js          # JavaScript client-side input checking logic
-└── templates/
-    ├── base.html          # Parent layout file (contains navbar & boilerplate)
-    ├── index.html         # Dashboard home view
-    ├── add_student.html   # Form to insert a new student record
-    ├── view_students.html # Tabular view showing all student records
-    ├── search.html        # Filter / search UI
-    ├── update.html        # Score editing page
-    ├── delete.html        # Record removal panel (with database warning)
-    └── average.html       # Automated class stats & analytics charts
+│   ├── style.css          # Global stylesheet containing Glassmorphism & Animations
+│   └── script.js          # JS code handling client validation & flash message fades
+└── templates/             # Jinja2 HTML Templates
+    ├── base.html          # Global Parent Layout Template
+    ├── index.html         # Dashboard Hub Homepage
+    ├── add_student.html   # Student Entry Enrollment Form
+    ├── view_students.html # Student Records Data Table View
+    ├── search.html        # Name Search Engine page
+    ├── update.html        # Marks Modification Panel
+    ├── delete.html        # Record Purge View with safety prompts
+    └── average.html       # Analytics & Top Performer metrics view
